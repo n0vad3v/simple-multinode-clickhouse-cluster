@@ -1,0 +1,23 @@
+global:
+  clickhouse_image: "yandex/clickhouse-server:21.3.2.5"
+  zookeeper_image: "bitnami/zookeeper:3.6.1"
+
+zookeeper_servers:
+  - host: 192.168.33.101
+  - host: 192.168.33.102
+  - host: 192.168.33.103
+
+clickhouse_servers:
+  - host: 192.168.33.101
+  - host: 192.168.33.102
+  - host: 192.168.33.103
+
+clickhouse_topology:
+  - clusters:
+      - name: "novakwok_cluster"
+        shards:
+          - name: "novakwok_shard"
+            servers:
+              - host: 192.168.33.101
+              - host: 192.168.33.102
+              - host: 192.168.33.103
