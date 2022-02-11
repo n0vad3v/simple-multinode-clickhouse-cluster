@@ -2,9 +2,20 @@
 
 ![](./topo.png)
 
-I hate those single-node clickhouse clusters(Running multiple clickhouse instance inside one docker-compose, this is just weird!), setting up a multi-node clickhouse cluster seems not very handy and may require lots of manual work, so this repo tries to solve this problem.
+I hate those single-node clickhouse clusters and manually installation, I mean, why should we:
 
-> Note: This is a simplified model of Multi Node Clickhouse Cluster, which lacks: LoadBalancer config/Automated Failover/MultiShard Config generation.
+* Running multiple clickhouse instance inside one docker-compose. (e.g: [tetafro/clickhouse-cluster](https://github.com/tetafro/clickhouse-cluster))
+* Manually install JRE, download zookeeper.tar.gz, and modifying those annoying config files like a hell as some Chinese blog/book does (e,g: [ClickHouse集群多实例部署](https://blog.csdn.net/ashic/article/details/105901792), [2021年最新 大数据 Clickhouse零基础教程](https://www.bilibili.com/video/BV1yf4y1M7gw?p=8))
+
+this is just weird!
+
+So this repo tries to solve these problem.
+
+## Note
+
+* This is a simplified model of Multi Node Clickhouse Cluster, which lacks: LoadBalancer config/Automated Failover/MultiShard Config generation.
+* All clickhouse data is persisted under `event-data`, if you need to move clickhouse to some other directory, you'll just need to move the directory(that contains `docker-compose.yml`) and `docker-compose up -d` to fire it up again.
+* `Host` network mode is used to simplify the whole deploy procedure, so you might need to create addition firewall rules if you are running this on a public accessible machine. 
 
 ## Prerequisites
 
