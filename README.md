@@ -1,5 +1,7 @@
 # Simple Multi Node Clickhouse Cluster
 
+![](./topo.png)
+
 I hate those single-node clickhouse clusters(Running multiple clickhouse instance inside one docker-compose, this is just weird!), setting up a multi-node clickhouse cluster seems not very handy and may require lots of manual work, so this repo tries to solve this problem.
 
 > Note: This is a simplified model of Multi Node Clickhouse Cluster, which lacks: LoadBalancer config/Automated Failover/MultiShard Config generation.
@@ -191,3 +193,7 @@ SHOW DATABASES
 3 rows in set. Elapsed: 0.005 sec. 
 
 ```
+
+## License
+
+GPL
